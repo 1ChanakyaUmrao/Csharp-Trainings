@@ -5,38 +5,29 @@ namespace C_
     class Program
     {
         static void Main(string[] args)
-        { 
-            int basenumber, exponent,power, i;
-            string ans;
-            Console.Write("Enter any basenumber: ");
-            basenumber = Convert.ToInt32(Console.ReadLine());
- 
-            Console.Write("Enter any exponent: ");
-            exponent = Convert.ToInt32(Console.ReadLine());
- 
-            power = 1;
-            i = 1;
-            while (i <= exponent)
-            {
-                power = power * basenumber;
-                i++;
-            }
+        {
+            label:
+                Console.WriteLine("Enter the number:");
+                int number = Convert.ToInt32(Console.ReadLine());
             
-            Console.WriteLine("Power : "+ power);   
-            Console.WriteLine("Do you want to continue?");
-            ans = Console.ReadLine();
-            while(true)
+
+            int power = 1;
+            int n = number;
+            while(n>0)
             {
-            if(ans == "y" || ans == "Y")
-            {
-                continue;
+                power*=number;
+                n--;
             }
-            else
+            Console.WriteLine("The power of {0} raised to power {1} is: {2}",number,number,power);
+
+            Console.WriteLine("If you wish to continue press y or Y otherwise press any key to exit.");
+            string choice = Console.ReadLine();
+
+            if(choice=="y" || choice=="Y")
             {
-                Console.WriteLine("Quit");
-            } 
+                goto label;
             }
-            
         }
+    
     }
 }
