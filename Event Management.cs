@@ -2,7 +2,7 @@
 
 namespace EventManagement
 {
-    class Event // Base Class
+    abstract class Event // Base Class + abstract class
     {
         public string eventName; 
         public string eventType; 
@@ -14,6 +14,7 @@ namespace EventManagement
 
         public int expense; 
         public string venue; 
+
         public void setEventName(string en)
         {
             eventName = en;  
@@ -69,20 +70,35 @@ namespace EventManagement
         {
             venue = sv;
         }
+        public abstract void Message();
         
     }
 }
-
+namespace EventManagement
+{
+    interface IPrint //interface
+        {
+            void Print(); // interface method (does not have a body)
+        }
+}
 
 namespace EventManagement
 {
 
-    class Birthday : Event // Derived Class
+    class Birthday : Event, IPrint // Derived Class
     {
+        public override void Message()
+        {
+            Console.WriteLine("Thank You!!!!!!!");
+        }
         public string songs;
         public void setSongsType(string st)
         {
             songs = st;
+        }
+        public void Print() 
+        {
+            Console.WriteLine("-----------------------");
         }
     }
 }
@@ -93,6 +109,15 @@ namespace EventManagement
 
     class Wedding : Event // Derived Class
     {
+
+        public override void Message()
+        {
+            Console.WriteLine("Thank You!!!!!!!");
+        }
+        public void Print() 
+        {
+            Console.WriteLine("-----------------------");
+        }
     }
 }
 
@@ -101,6 +126,14 @@ namespace EventManagement
 
     class Farewell : Event // Derived Class
     {
+        public override void Message()
+        {
+            Console.WriteLine("Thank You!!!!!!!");
+        }
+        public void Print() 
+        {
+            Console.WriteLine("-----------------------");
+        }
     }
 }
 
@@ -171,7 +204,7 @@ namespace EventManagement
 
 
                 Console.WriteLine("\n");
-                Console.WriteLine("enter your venue: "); 
+                Console.WriteLine("Enter your venue: "); 
                 string ven = Console.ReadLine();
                 obj1.setVenue(ven);
 
@@ -180,13 +213,14 @@ namespace EventManagement
                 Console.WriteLine("Here's the details of the event you are planning for:\n");
                 Console.WriteLine("Party Name:"+ obj1.eventName); 
                 Console.WriteLine("Party Type: "+ obj1.eventType);
-                Console.WriteLine("Time: "+ obj1.eventDate);
+                Console.WriteLine("Date: "+ obj1.eventDate);
                 Console.WriteLine("Songs Type: "+ obj1.songs);
                 Console.WriteLine("Number of guests: "+ obj1.numOfguest);
                 Console.WriteLine("Package Selected : "+ obj1.package);
                 Console.WriteLine("Venue: "+obj1.venue);
-                
                 Console.WriteLine("Expense: "+obj1.expense);
+                obj1.Message();
+                obj1.Print();
             }
 
             else if(selection == 2)  
@@ -222,7 +256,7 @@ namespace EventManagement
 
 
                 Console.WriteLine("\n");
-                Console.WriteLine("enter your venue: "); 
+                Console.WriteLine("Enter your venue: "); 
                 string ven = Console.ReadLine();
                 obj1.setVenue(ven);
 
@@ -234,13 +268,13 @@ namespace EventManagement
                 Console.WriteLine("Here's the details of the event you are planning for:\n");
                 Console.WriteLine("Party Name:"+ obj1.eventName);
                 Console.WriteLine("Party Type: "+ obj1.eventType);
-                Console.WriteLine("Party Time: "+ obj1.eventDate);
+                Console.WriteLine("Date: "+ obj1.eventDate);
                 Console.WriteLine("Number of guests: "+ obj1.numOfguest);
                 Console.WriteLine("Package Selected : "+ obj1.package);
                 Console.WriteLine("Venue: "+obj1.venue);
-       
-                
                 Console.WriteLine("Expense: "+obj1.expense);
+                obj1.Message();
+                obj1.Print();
                
             }
 
@@ -278,7 +312,7 @@ namespace EventManagement
 
 
                 Console.WriteLine("\n");
-                Console.WriteLine("enter your venue: "); 
+                Console.WriteLine("Enter your venue: "); 
                 string ven = Console.ReadLine();
                 obj1.setVenue(ven);
 
@@ -290,12 +324,13 @@ namespace EventManagement
                 Console.WriteLine("Here's the details of the event you are planning for:\n");
                 Console.WriteLine("Party Name:"+ obj1.eventName); 
                 Console.WriteLine("Party Type: "+ obj1.eventType);
-                Console.WriteLine("Party Time: "+ obj1.eventDate);
+                Console.WriteLine("Date: "+ obj1.eventDate);
                 Console.WriteLine("Number of guests: "+ obj1.numOfguest);
                 Console.WriteLine("Package Selected : "+ obj1.package);
                 Console.WriteLine("Selected Venue: "+obj1.venue);
-              
                 Console.WriteLine("Your Total Expense is: "+obj1.expense);
+                obj1.Message();
+                obj1.Print();
             }
 
             else
