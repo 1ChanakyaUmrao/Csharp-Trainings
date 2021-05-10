@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
   
 class lis {
     public static void Main(String[] args)
@@ -22,6 +23,13 @@ class lis {
                 firstlist.Add(j);
             }
             Console.WriteLine("Count Is: " + firstlist.Count);
+            firstlist.Sort();
+            Console.WriteLine("\nElements sorted in ascending order :");
+            for (int i = 0; i < numbers; i++)
+            {
+            Console.WriteLine(firstlist[i]);
+            
+            }  
             break;
             
             case 2:
@@ -34,6 +42,13 @@ class lis {
                 secondlist.Add(j);
             }
             Console.WriteLine("Count Is: " + secondlist.Count);
+            firstlist.Sort();
+            Console.WriteLine("\nElements sorted in ascending order :");
+            for (int i = 0; i < elements; i++)
+            {
+            Console.WriteLine(secondlist[i]);
+            
+            }  
             break;
             
             default:
