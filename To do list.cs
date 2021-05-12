@@ -10,7 +10,7 @@ namespace To
         public string TaskType; 
         public string TaskDate;
 
-        public void setTaskName(string tk)
+        public void setTaskName(string tk) //methods
         {
             TaskName = tk;  
         }
@@ -75,15 +75,6 @@ namespace To
             int ans = Convert.ToInt32(Console.ReadLine());
             if(ans == 5)
             {
-                goto label;
-                    
-            }
-            else
-            {
-                Console.WriteLine("Quit");
-            }
-
-            label:
             In obj1 = new In();
             obj1.tasktype();
             obj1.date();
@@ -106,7 +97,11 @@ namespace To
 
             obj1.Print();
             obj1.Message();
-
+            }
+            else
+            {
+                Console.WriteLine("Quit");
+            }
         }
     }
 }
