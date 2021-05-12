@@ -2,28 +2,44 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace To
+namespace list
 {
     abstract class ToDo // Base Class + abstract class
     {
-        public string TaskName; 
-        public string TaskType; 
-        public string TaskDate;
-
-        public void setTaskName(string tk) //methods
+        private string TaskName; 
+        private string TaskType; 
+        private string TaskDate;
+        public string taskName
         {
-            TaskName = tk;  
+            get{ return TaskName;}
+            set{ TaskName = value;}
+        }
+        public string taskType
+        {
+            get{ return TaskType;}
+            set{ TaskType = value;}
+        }
+        public string taskDate
+        {
+            get{ return TaskDate;}
+            set{ TaskDate = value;}
+        }
+        /*
+        public void setTaskName(string taskname) //methods
+        {
+            TaskName = taskname;  
         }
         
-        public void setTasktType(string tt)
+        public void setTasktType(string tasktime)
         {
-            TaskType = tt;
+            TaskType = tasktime;
         }
 
-        public void setTaskDate(string td)
+        public void setTaskDate(string taskdate)
         {
-            TaskDate = td;
+            TaskDate = taskdate;
         }
+        */
         
         public void tasktype()
         {
@@ -37,20 +53,12 @@ namespace To
         public abstract void Message();
         
     }
-}
-
-namespace To
-{
     interface IPrint //interface
-        {
-            void Print(); // interface method (does not have a body)
-        }
-}
-
-namespace To
-{
-
-    class In : ToDo, IPrint // Derived Class
+    {
+        void Print(); // interface method (does not have a body)
+    }
+    
+    class Second : ToDo, IPrint // Derived Class
     {
         public override void Message()
         {
@@ -61,21 +69,20 @@ namespace To
             Console.WriteLine("-------------------------------");
         }
     }
-}
-
-namespace To
-{
     class Program
     {
         static void Main(string[] args)
         {   
             
             Console.WriteLine("To Do Console App");
-            Console.WriteLine("Press 5 if you want to do some tasks today:");
-            int ans = Convert.ToInt32(Console.ReadLine());
-            if(ans == 5)
+            Console.WriteLine("Press y or Y if you want to do some tasks today:");
+            char ans;
+            try{
+                ans = Convert.ToChar(Console.ReadLine());
+                
+            if(ans == 'y' || ans == 'Y')
             {
-            In obj1 = new In();
+            Second obj1 = new Second();
             obj1.tasktype();
             obj1.date();
             List<string> ToDolist = new List<string>();
@@ -102,6 +109,13 @@ namespace To
             {
                 Console.WriteLine("Quit");
             }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Something went wrong");
+                Console.WriteLine(e.Message.ToString());
+            }
+            
         }
     }
 }
